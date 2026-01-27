@@ -1,0 +1,13 @@
+id,zone_name,center_lat,center_lng,radius,area_type
+1,South Mumbai (Colaba & Fort),18.922,72.8347,1500,commercial
+2,Bandra West (Linking Road),19.0596,72.8295,1200,market
+3,Andheri East (MIDC),19.1136,72.8697,2000,commercial
+4,Dadar Central,19.0178,72.8478,1000,market
+5,Kurla West,19.0726,72.8795,1400,residential
+6,Eastern Express Highway (Vikhroli),19.0989,72.9304,3000,highway
+7,Borivali West,19.2312,72.8567,1600,residential
+8,Juhu Beach Area,19.098,72.826,1100,market
+9,Powai (Hiranandani),19.1197,72.905,1500,residential
+10,Chembur (Industrial),19.045,72.89,1800,industrial
+11,Malad West (Mindspace),19.186,72.836,1300,commercial
+12,Lower Parel (Phoenix),18.993,72.83,1000,commercial

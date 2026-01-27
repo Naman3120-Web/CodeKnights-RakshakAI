@@ -6,6 +6,8 @@ class AreaType(str, enum.Enum):
     RESIDENTIAL = "residential"
     MARKET = "market"
     HIGHWAY = "highway"
+    COMMERCIAL = "commercial"   # Add this
+    INDUSTRIAL = "industrial"
 
 class Zone(Base):
     __tablename__ = "zones"

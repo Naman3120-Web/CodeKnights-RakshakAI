@@ -5,8 +5,9 @@ from enum import Enum
 class AreaType(str, Enum):
     RESIDENTIAL = "residential"
     MARKET = "market"
-    COMMERCIAL = "commercial"
     HIGHWAY = "highway"
+    COMMERCIAL = "commercial"   # Add this
+    INDUSTRIAL = "industrial"
 
 class ZoneBase(BaseModel):
     zone_name: str
