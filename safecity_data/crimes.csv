@@ -1,0 +1,21 @@
+id,crime_type,zone_id,latitude,longitude,date_time,area_name
+1001,Theft,1,18.9231,72.8352,2025-10-12T14:30:00,Colaba Causeway Market
+1002,Theft,1,18.9215,72.8339,2025-11-05T16:45:00,Fort Business District
+1003,Assault,1,18.9201,72.836,2025-12-20T23:15:00,Back Bay Alley
+1004,Theft,2,19.0601,72.8301,2025-09-15T18:20:00,Linking Road Shopping
+1005,Theft,2,19.0589,72.8288,2025-10-02T13:10:00,Hill Road
+1006,Accident,3,19.1145,72.8705,2025-11-10T09:45:00,MIDC Junction
+1007,Theft,3,19.1128,72.8689,2025-12-05T11:30:00,Office Complex Parking
+1008,Theft,4,19.0185,72.8482,2025-10-25T17:00:00,Flower Market
+1009,Assault,5,19.0735,72.8788,2025-12-31T01:30:00,Residential Colony
+1010,Accident,6,19.0995,72.9312,2025-11-20T22:15:00,Highway Slip Road
+1011,Accident,6,19.0982,72.9298,2025-12-15T08:50:00,Express Highway Main Lane
+1012,Theft,7,19.232,72.8575,2025-09-28T15:40:00,Local Park
+1013,Theft,8,19.0985,72.8255,2025-10-30T19:20:00,Juhu Tara Road
+1014,Assault,2,19.0575,72.831,2026-01-05T02:00:00,Carter Road Promenade
+1015,Theft,4,19.017,72.847,2025-11-12T10:15:00,Station Bridge
+1016,Accident,6,19.1002,72.932,2025-08-22T23:45:00,Godrej Signal
+1017,Theft,5,19.0715,72.8805,2025-09-05T14:50:00,Mall Entrance
+1018,Assault,5,19.074,72.878,2025-11-28T22:30:00,Slum Pocket
+1019,Theft,1,18.9225,72.835,2025-12-10T12:00:00,Tourist Plaza
+1020,Accident,3,19.115,72.871,2026-01-10T18:30:00,Metro Construction Site

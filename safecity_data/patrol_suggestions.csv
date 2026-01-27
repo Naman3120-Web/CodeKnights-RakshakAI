@@ -1,0 +1,9 @@
+id,zone_id,risk_level,suggestion_text,prediction_id
+501,1,High,Deploy static patrol units at Colaba Causeway and Gateway tourist points.,101
+502,2,High,Increase bike patrols on Linking Road during evening peak hours.,102
+503,6,Medium,Station traffic interceptors on Eastern Express Highway post-midnight.,106
+504,5,Medium,Enhance night patrolling (11 PM - 3 AM) in residential pockets.,105
+505,4,High,Crowd control measures recommended near Dadar Station flower market.,104
+506,3,Medium,Conduct spot checks at MIDC entry points during late evening shifts.,103
+507,7,Low,Maintain standard beat marshall rounds; no specific surge required.,107
+508,8,Medium,Increase vigilance near Juhu Beach entrance on weekends.,108

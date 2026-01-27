@@ -1,0 +1,16 @@
+crime_type,area,latitude,longitude,hour,day,month
+theft,AreaA,19.07,72.87,22,5,7
+assault,AreaB,19.08,72.88,1,6,7
+accident,AreaA,19.07,72.87,18,2,8
+theft,AreaC,19.09,72.86,23,6,8
+assault,AreaB,19.08,72.88,21,7,7
+theft,AreaA,19.07,72.87,20,6,7
+accident,AreaC,19.09,72.86,2,4,8
+theft,AreaA,19.07,72.87,19,5,7
+assault,AreaB,19.08,72.88,0,7,7
+theft,AreaC,19.09,72.86,22,6,8
+accident,AreaA,19.07,72.87,16,3,8
+assault,AreaB,19.08,72.88,23,6,7
+theft,AreaA,19.07,72.87,21,5,7
+theft,AreaC,19.09,72.86,20,6,8
+accident,AreaB,19.08,72.88,1,7,7
