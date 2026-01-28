@@ -58,3 +58,46 @@ async def get_crimes_by_type(crime_type: CrimeType, db: Session = Depends(get_db
 async def get_crime_stats_by_zone(db: Session = Depends(get_db)):
     """Get crime count grouped by zone"""
     return CrimeService.get_crime_count_by_zone(db)
+
+# ========== AI/ML Endpoints ==========
+
+@router.post("/ai/train")
+async def train_ai_models(db: Session = Depends(get_db)):
+    """Train AI models with current crime data"""
+    return CrimeService.train_ai_models(db)
+
+@router.get("/ai/predict-risk")
+async def predict_crime_risk(
+    latitude: float = Query(..., ge=-90, le=90),
+    longitude: float = Query(..., ge=-180, le=180),
+    hour: int = Query(..., ge=0, le=23),
+    day: int = Query(..., ge=1, le=31),
+    month: int = Query(..., ge=1, le=12),
+):
+    """Predict crime risk for a location and time"""
+    return CrimeService.predict_crime_risk(latitude, longitude, hour, day, month)
+
+@router.get("/ai/analyze")
+async def analyze_crime_report(
+    area: str = Query(...),
+    latitude: float = Query(..., ge=-90, le=90),
+    longitude: float = Query(..., ge=-180, le=180),
+    hour: int = Query(..., ge=0, le=23),
+    day: int = Query(..., ge=1, le=31),
+    month: int = Query(..., ge=1, le=12),
+    crime_type: str = Query(...),
+):
+    """Full ML analysis of a crime report"""
+    return CrimeService.analyze_crime_report(
+        area, latitude, longitude, hour, day, month, crime_type
+    )
+
+@router.get("/ai/patrol-suggestions")
+async def get_patrol_suggestions(
+    latitude: float = Query(..., ge=-90, le=90),
+    longitude: float = Query(..., ge=-180, le=180),
+    area: str = Query(...),
+    crime_type: str = Query(...),
+):
+    """Get AI-powered patrol suggestions"""
+    return CrimeService.get_ai_patrol_suggestions(latitude, longitude, area, crime_type)

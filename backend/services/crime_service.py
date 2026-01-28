@@ -230,7 +230,7 @@ Return **only** a JSON object with the following keys:
         response = None
         try:
             response = self.gemini_client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-3-flash-preview",
                 contents=prompt
             )
             # Parse response - attempt to extract JSON
