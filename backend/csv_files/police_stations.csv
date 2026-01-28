@@ -1,0 +1,20 @@
+id,station_name,zone_id,latitude,longitude,contact_number,station_type,personnel_count,has_lockup
+1001,South Mumbai Police Station,1,18.91896,72.834819,022-2807-6338,Main Station,92,True
+1002,Bandra West Police Station,2,19.060196,72.831469,022-2463-2111,Main Station,59,True
+1003,Bandra West Traffic Division,2,19.067434,72.822892,022-2252-5064,Traffic Division,33,False
+1004,Andheri East Police Station,3,19.112626,72.870271,022-2791-1274,Main Station,49,True
+1005,Andheri East Traffic Division,3,19.104908,72.868386,022-2456-6831,Traffic Division,36,False
+1006,Dadar Central Police Station,4,19.018379,72.84967,022-2648-3374,Main Station,63,True
+1007,Dadar Central Chowki (Outpost),4,19.018885,72.841166,022-2299-4062,Chowki (Outpost),6,False
+1008,Kurla West Police Station,5,19.073913,72.880984,022-2722-2278,Main Station,79,True
+1009,Kurla West Traffic Division,5,19.069552,72.884837,022-2205-9085,Traffic Division,32,False
+1010,Vikhroli Highway Police Station,6,19.100204,72.931887,022-2947-8111,Main Station,91,True
+1011,Vikhroli Highway Chowki (Outpost),6,19.102654,72.937269,022-2727-6850,Chowki (Outpost),6,False
+1012,Borivali West Police Station,7,19.230838,72.857204,022-2356-6550,Main Station,104,True
+1013,Borivali West Chowki (Outpost),7,19.235077,72.860907,022-2734-3541,Chowki (Outpost),10,False
+1014,Juhu Police Station,8,19.097005,72.825578,022-2803-3773,Main Station,45,True
+1015,Powai Police Station,9,19.118862,72.903464,022-2711-7851,Main Station,103,True
+1016,Chembur Police Station,10,19.044866,72.889496,022-2477-5857,Main Station,68,True
+1017,Malad Mindspace Police Station,11,19.183182,72.83781,022-2736-1383,Main Station,60,True
+1018,Lower Parel Police Station,12,18.992446,72.831506,022-2771-5873,Main Station,84,True
+1019,Lower Parel Traffic Division,12,18.996501,72.841164,022-2839-5110,Traffic Division,33,False

@@ -275,7 +275,9 @@ export const fetchPredictionsByZone = async (zoneId) => {
 
 export const fetchLatestPredictionForZone = async (zoneId) => {
   try {
-    const response = await apiClient.get(`/predictions/zone/${zoneId}/latest`);
+    const response = await apiClient.get(
+      `/predictions/zone/${zoneId}/latest`,
+    );
     return response.data;
   } catch (error) {
     console.error(
@@ -314,7 +316,9 @@ export const fetchPatrolSuggestions = async (filters = {}) => {
 
 export const fetchPatrolSuggestionsByZone = async (zoneId) => {
   try {
-    const response = await apiClient.get(`/patrol-suggestions/zone/${zoneId}`);
+    const response = await apiClient.get(
+      `/patrol-suggestions/zone/${zoneId}`,
+    );
     return response.data;
   } catch (error) {
     console.error(
@@ -378,3 +382,65 @@ export const fetchCrimeStatsByZone = async (zoneId) => {
     throw error;
   }
 };
+
+// ========== POLICE STATION APIs ==========
+
+export const fetchPoliceStations = async () => {
+  try {
+    const response = await apiClient.get("/police-stations");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching police stations:", error);
+    return [];
+  }
+};
+
+export const fetchPoliceStationById = async (stationId) => {
+  try {
+    const response = await apiClient.get(`/police-stations/${stationId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching police station ${stationId}:`, error);
+    throw error;
+  }
+};
+
+export const fetchPoliceStationsByZone = async (zoneId) => {
+  try {
+    const response = await apiClient.get(
+      `/police-stations/zone/${zoneId}`,
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      `Error fetching police stations for zone ${zoneId}:`,
+      error,
+    );
+    throw error;
+  }
+};
+
+export const fetchNearbyPoliceStations = async (latitude, longitude, radiusKm = 5) => {
+  try {
+    const response = await apiClient.get("/police-stations/nearby", {
+      params: { latitude, longitude, radius_km: radiusKm }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching nearby police stations:", error);
+    throw error;
+  }
+};
+
+// Transform police station data for frontend
+export const transformPoliceStationData = (station) => ({
+  id: station.id,
+  name: station.station_name,
+  lat: station.latitude,
+  lng: station.longitude,
+  zoneId: station.zone_id,
+  contact: station.contact_number,
+  type: station.station_type,
+  personnelCount: station.personnel_count,
+  hasLockup: station.has_lockup,
+});

@@ -23,20 +23,21 @@ export default function useCrimeData(filters) {
       } catch (err) {
         console.error("Failed to load crime data", err);
         setError("Failed to load crime data. Using mock data.");
-        // Fallback to empty array on error
         setData([]);
       } finally {
         setLoading(false);
       }
     };
     loadData();
-  }, [filters]); // Re-fetch when filters change
+  }, [filters]);
 
   // 2. Filter Data (Client Side Logic for additional filtering)
   const filteredData = useMemo(() => {
     return data.filter((crime) => {
+      // Case-insensitive comparison for crime type
       const typeMatch =
-        filters.crimeType === "All" || crime.type === filters.crimeType;
+        filters.crimeType === "All" ||
+        crime.type.toLowerCase() === filters.crimeType.toLowerCase();
 
       // Add time range filtering based on months
       if (filters.timeRange && filters.timeRange !== "all") {

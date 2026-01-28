@@ -1,0 +1,13 @@
+id,zone_id,risk_level,suggestion_text,prediction_id
+501,1,High,Crowd control measures recommended near station areas during rush hour.,101
+502,2,High,Crowd control measures recommended near station areas during rush hour.,102
+503,3,Medium,Increase visibility near bus depots and rickshaw stands.,103
+504,4,High,Deploy static patrol units at main Dadar Market entry points between 10 AM and 8 PM.,104
+505,5,Medium,Increase visibility near bus depots and rickshaw stands.,105
+506,6,Medium,Enhance night patrolling (11 PM - 3 AM) in secluded pockets.,106
+507,7,Low,Focus on community engagement and awareness drives.,107
+508,8,Medium,Enhance night patrolling (11 PM - 3 AM) in secluded pockets.,108
+509,9,Low,Focus on community engagement and awareness drives.,109
+510,10,Medium,Enhance night patrolling (11 PM - 3 AM) in secluded pockets.,110
+511,11,Medium,Conduct spot checks at entry points during late evening shifts.,111
+512,12,High,Crowd control measures recommended near station areas during rush hour.,112

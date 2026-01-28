@@ -3,6 +3,7 @@ from schemas.zone import ZoneCreate, ZoneUpdate, ZoneResponse
 from schemas.crime_stat import CrimeStatCreate, CrimeStatUpdate, CrimeStatResponse
 from schemas.prediction import PredictionCreate, PredictionUpdate, PredictionResponse
 from schemas.patrol_suggestion import PatrolSuggestionCreate, PatrolSuggestionUpdate, PatrolSuggestionResponse
+from schemas.police_stations import PoliceStationCreate, PoliceStationUpdate, PoliceStationResponse
 
 __all__ = [
     "CrimeCreate", "CrimeUpdate", "CrimeResponse",
@@ -10,4 +11,5 @@ __all__ = [
     "CrimeStatCreate", "CrimeStatUpdate", "CrimeStatResponse",
     "PredictionCreate", "PredictionUpdate", "PredictionResponse",
     "PatrolSuggestionCreate", "PatrolSuggestionUpdate", "PatrolSuggestionResponse",
+    "PoliceStationCreate", "PoliceStationUpdate", "PoliceStationResponse",
 ]

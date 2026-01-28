@@ -12,9 +12,11 @@ from sklearn.ensemble import RandomForestClassifier
 import google.genai as genai
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
-# Load environment variables
-load_dotenv()
+# Load environment variables with explicit path
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 
 class CrimeAIService:

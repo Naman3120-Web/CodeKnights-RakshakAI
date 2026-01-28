@@ -4,6 +4,7 @@ from database import SessionLocal, engine, Base
 from models.zone import Zone, AreaType
 from models.crime import Crime, CrimeType
 from models.crime_stat import CrimeStat
+from models.police_stations import PoliceStation, StationType
 
 # Create tables if they don't exist
 Base.metadata.create_all(bind=engine)
@@ -46,10 +47,20 @@ def map_crime_type(crime_type_str: str) -> CrimeType:
     }
     return mapping.get(crime_type_str.lower(), CrimeType.THEFT)
 
+def map_station_type(station_type_str: str) -> StationType:
+    """Map CSV station types to StationType enum"""
+    mapping = {
+        "main station": StationType.MAIN_STATION,
+        "traffic division": StationType.TRAFFIC_DIVISION,
+        "chowki (outpost)": StationType.CHOWKI,
+    }
+    return mapping.get(station_type_str.lower(), StationType.MAIN_STATION)
+
 def clear_tables(db):
     """Clear existing data (optional)"""
     db.query(CrimeStat).delete()
     db.query(Crime).delete()
+    db.query(PoliceStation).delete()  # Add this line
     db.query(Zone).delete()
     db.commit()
     print("🗑️  Cleared existing data")
@@ -127,6 +138,31 @@ def import_crime_stats(db):
     db.commit()
     print(f"✅ Imported {count} crime stats")
 
+def import_police_stations(db):
+    """Import police stations from CSV"""
+    csv_path = f"{CSV_FOLDER}/police_stations.csv"
+    count = 0
+    
+    with open(csv_path, 'r', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            station = PoliceStation(
+                id=int(row['id']),
+                station_name=row['station_name'],
+                zone_id=int(row['zone_id']),
+                latitude=float(row['latitude']),
+                longitude=float(row['longitude']),
+                contact_number=row['contact_number'],
+                station_type=map_station_type(row['station_type']),
+                personnel_count=int(row['personnel_count']),
+                has_lockup=row['has_lockup'].lower() == 'true'
+            )
+            db.add(station)
+            count += 1
+    
+    db.commit()
+    print(f"✅ Imported {count} police stations")
+
 def main():
     """Main import function"""
     print("\n🚀 Starting CSV Import for Rakshak AI...\n")
@@ -141,6 +177,7 @@ def main():
         import_zones(db)
         import_crimes(db)
         import_crime_stats(db)
+        import_police_stations(db)  # Add this line
         
         print("\n✅ All imports completed successfully!")
         print(f"\n📊 Database: rakshak_ai.db")
