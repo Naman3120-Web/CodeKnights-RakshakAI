@@ -18,6 +18,13 @@ class PredictionBase(BaseModel):
 class PredictionCreate(PredictionBase):
     pass
 
+class PredictionUpdate(BaseModel):
+    zone_id: Optional[int] = None
+    predicted_month: Optional[str] = None
+    risk_level: Optional[RiskLevel] = None
+    risk_score: Optional[float] = Field(None, ge=0.0, le=1.0)
+    expected_crimes: Optional[int] = None
+
 class PredictionResponse(PredictionBase):
     id: int
     generated_at: datetime

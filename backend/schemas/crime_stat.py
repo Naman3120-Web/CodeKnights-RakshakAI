@@ -13,6 +13,13 @@ class CrimeStatBase(BaseModel):
 class CrimeStatCreate(CrimeStatBase):
     pass
 
+class CrimeStatUpdate(BaseModel):
+    zone_id: Optional[int] = None
+    crime_type: Optional[CrimeType] = None
+    crime_count: Optional[int] = None
+    start_date: Optional[datetime] = None
+    end_date: Optional[datetime] = None
+
 class CrimeStatResponse(CrimeStatBase):
     id: int
     

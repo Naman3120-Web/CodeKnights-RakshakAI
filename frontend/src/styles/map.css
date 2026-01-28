@@ -1,0 +1,32 @@
+.map-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #e5e7eb;
+}
+
+/* Sidebar & Component Styles can go in layout or separate components.css */
+.sidebar, .insights-panel {
+  background: white;
+  border-right: 1px solid var(--border);
+  padding: 1rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.insights-panel {
+  border-left: 1px solid var(--border);
+  border-right: none;
+}
+.top-bar {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

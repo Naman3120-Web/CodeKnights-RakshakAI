@@ -11,6 +11,12 @@ class PatrolSuggestionBase(BaseModel):
 class PatrolSuggestionCreate(PatrolSuggestionBase):
     pass
 
+class PatrolSuggestionUpdate(BaseModel):
+    zone_id: Optional[int] = None
+    risk_level: Optional[RiskLevel] = None
+    suggestion_text: Optional[str] = None
+    prediction_id: Optional[int] = None
+
 class PatrolSuggestionResponse(PatrolSuggestionBase):
     id: int
     
