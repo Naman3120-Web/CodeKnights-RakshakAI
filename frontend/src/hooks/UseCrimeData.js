@@ -38,15 +38,18 @@ export default function useCrimeData(filters) {
       const typeMatch =
         filters.crimeType === "All" || crime.type === filters.crimeType;
 
-      // Add time range filtering if needed
+      // Add time range filtering based on months
       if (filters.timeRange && filters.timeRange !== "all") {
         const crimeDate = new Date(crime.date);
         const now = new Date();
-        const hoursDiff = (now - crimeDate) / (1000 * 60 * 60);
+        const monthsDiff =
+          (now.getFullYear() - crimeDate.getFullYear()) * 12 +
+          (now.getMonth() - crimeDate.getMonth());
 
-        if (filters.timeRange === "24h" && hoursDiff > 24) return false;
-        if (filters.timeRange === "7d" && hoursDiff > 168) return false;
-        if (filters.timeRange === "30d" && hoursDiff > 720) return false;
+        if (filters.timeRange === "3m" && monthsDiff > 3) return false;
+        if (filters.timeRange === "6m" && monthsDiff > 6) return false;
+        if (filters.timeRange === "9m" && monthsDiff > 9) return false;
+        if (filters.timeRange === "12m" && monthsDiff > 12) return false;
       }
 
       return typeMatch;

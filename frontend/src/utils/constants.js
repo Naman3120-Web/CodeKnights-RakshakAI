@@ -2,7 +2,6 @@ export const CRIME_TYPES = {
   THEFT: "Theft",
   ASSAULT: "Assault",
   ACCIDENT: "Accident",
-  VANDALISM: "Vandalism",
 };
 
 export const SEVERITY_COLORS = {

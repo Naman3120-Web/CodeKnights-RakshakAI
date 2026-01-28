@@ -47,7 +47,7 @@ export default function InsightsPanel({ data }) {
     <aside className="insights-panel">
       <div className="panel-header">
         <h3>
-          <BarChart2 size={16} /> Real-time Analysis
+          <BarChart2 size={16} /> Analysis
         </h3>
       </div>
 
@@ -64,10 +64,7 @@ export default function InsightsPanel({ data }) {
             fontSize: "0.75rem",
             color: "#10b981",
           }}
-        >
-          <TrendingUp size={12} />
-          <span>+4.2% from yesterday</span>
-        </div>
+        ></div>
       </div>
 
       {/* Metric 2: Primary Threat */}

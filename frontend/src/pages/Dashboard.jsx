@@ -10,7 +10,7 @@ export default function Dashboard() {
   // 1. Shared State
   const [filters, setFilters] = useState({
     crimeType: "All",
-    timeRange: "all", // Changed from "24h" to show all crimes
+    timeRange: "all", // all, 3m, 6m, 9m, 12m
   });
 
   const [toggles, setToggles] = useState({

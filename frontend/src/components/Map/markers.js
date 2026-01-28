@@ -2,12 +2,12 @@ import L from "leaflet";
 
 /**
  * SVG Icons for different crime types
- * Based on Lucide React icons
+ * Based on Lucide React icons - optimized for small sizes
  */
 
 const theftSVG = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
    stroke-linecap="round" stroke-linejoin="round">
    <path d="M6 11v-1a4 4 0 1 1 8 0v1"/>
    <path d="M5 11h10v6H5z"/>
@@ -15,25 +15,29 @@ const theftSVG = `
 `;
 
 const assaultSVG = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
    stroke-linecap="round" stroke-linejoin="round">
-   <path d="M12 9v2m0 4h.01"/>
+   <circle cx="12" cy="13" r="3"/>
+   <path d="M12 8v1m0 10v1M8 12h1m10 0h1"/>
    <path d="M10.29 3.86 1.82 18h16.36L10.29 3.86z"/>
   </svg>
 `;
 
 const accidentSVG = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
    stroke-linecap="round" stroke-linejoin="round">
-   <path d="M3 13l2-5h14l2 5M5 13v4h2v-4M17 13v4h2v-4"/>
+   <circle cx="7" cy="18" r="2"/>
+   <circle cx="17" cy="18" r="2"/>
+   <path d="M2 6h20v8H2z"/>
+   <path d="M6 9v3m12-3v3"/>
   </svg>
 `;
 
 const defaultSVG = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+   viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
    stroke-linecap="round" stroke-linejoin="round">
    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
   </svg>
@@ -72,7 +76,7 @@ const getColorClass = (type) => {
 };
 
 /**
- * Create custom Leaflet marker with crime-specific icon
+ * Create custom Leaflet marker with crime-specific icon (SMALLER VERSION)
  * @param {string} crimeType - Type of crime (theft, assault, accident)
  * @returns {L.DivIcon} - Leaflet DivIcon for the marker
  */
@@ -88,19 +92,19 @@ export const createCrimeMarker = (crimeType) => {
 
   return L.divIcon({
     html: iconHTML,
-    className: "crime-marker-container", // Empty to avoid default Leaflet styling
-    iconSize: [40, 40],
-    iconAnchor: [20, 40], // Point of the marker corresponds to bottom center
-    popupAnchor: [0, -40], // Popup appears above the marker
+    className: "crime-marker-container",
+    iconSize: [30, 30], // Reduced from 40 to 30
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -30],
   });
 };
 
 /**
- * Create marker for hotspot zones (larger, semi-transparent)
+ * Create marker for hotspot zones
  */
 export const createHotspotMarker = (intensity = 0.5) => {
   const opacity = Math.min(intensity, 1);
-  const size = 48;
+  const size = 40;
 
   const iconHTML = `
     <div class="hotspot-marker" style="opacity: ${opacity}">
