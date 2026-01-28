@@ -2,7 +2,7 @@ import React from "react";
 import { BarChart2, Zap, TrendingUp, AlertTriangle } from "lucide-react";
 import { SEVERITY_COLORS } from "../utils/constants";
 
-export default function InsightsPanel({ data }) {
+export default function InsightsPanel({ data, onGenerateReport }) {
   // --- Analysis Logic ---
 
   // 1. Total Incidents
@@ -118,7 +118,7 @@ export default function InsightsPanel({ data }) {
             fontWeight: "600",
             cursor: "pointer",
           }}
-          onClick={() => alert("Connecting to AI Prediction Model...")}
+          onClick={onGenerateReport}
         >
           <Zap size={16} fill="white" /> Generate Report
         </button>

@@ -1,10 +1,22 @@
-import React from "react";
-import routes from "./routes";
+import React, { useState } from "react";
+import Dashboard from "../pages/Dashboard";
+import PredictionsDashboard from "../pages/PredictionsDashboard";
 import "../styles/globals.css";
 import "../styles/layout.css";
 
 export default function App() {
-  // Simple routing without react-router-dom for now,
-  // or just render Dashboard since it's a one-screen app.
-  return <div className="app-container">{routes[0].component}</div>;
+  const [activePage, setActivePage] = useState("dashboard");
+
+  return (
+    <div className="app-container">
+      {activePage === "dashboard" ? (
+        <Dashboard onNavigate={setActivePage} activePage={activePage} />
+      ) : (
+        <PredictionsDashboard
+          onNavigate={setActivePage}
+          activePage={activePage}
+        />
+      )}
+    </div>
+  );
 }

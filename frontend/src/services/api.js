@@ -378,3 +378,82 @@ export const fetchCrimeStatsByZone = async (zoneId) => {
     throw error;
   }
 };
+
+// ========== AI/ML APIs ==========
+
+export const trainAIModels = async () => {
+  try {
+    const response = await apiClient.post("/crimes/ai/train");
+    return response.data;
+  } catch (error) {
+    console.error("Error training AI models:", error);
+    throw error;
+  }
+};
+
+export const predictCrimeRisk = async (
+  latitude,
+  longitude,
+  hour,
+  day,
+  month,
+) => {
+  try {
+    const params = { latitude, longitude, hour, day, month };
+    const response = await apiClient.get("/crimes/ai/predict-risk", { params });
+    return response.data;
+  } catch (error) {
+    console.error("Error predicting crime risk:", error);
+    throw error;
+  }
+};
+
+export const getAIPatrolSuggestions = async (
+  latitude,
+  longitude,
+  area,
+  crimeType,
+) => {
+  try {
+    const params = {
+      latitude,
+      longitude,
+      area,
+      crime_type: crimeType,
+    };
+    const response = await apiClient.get("/crimes/ai/patrol-suggestions", {
+      params,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error getting AI patrol suggestions:", error);
+    throw error;
+  }
+};
+
+export const analyzeWithAI = async (
+  area,
+  latitude,
+  longitude,
+  hour,
+  day,
+  month,
+  crimeType,
+) => {
+  try {
+    const params = {
+      area,
+      latitude,
+      longitude,
+      hour,
+      day,
+      month,
+      crime_type: crimeType,
+    };
+    const response = await apiClient.get("/crimes/ai/analyze", { params });
+    return response.data;
+  } catch (error) {
+    console.error("Error analyzing with AI:", error);
+    throw error;
+  }
+};
