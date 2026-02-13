@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// Toggle this to true when you have a real backend
-const USE_REAL_API = true;
-const API_BASE = "http://localhost:8000/api";
+// Use environment variables for configuration
+const USE_REAL_API = import.meta.env.VITE_USE_REAL_API === 'true';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 // Create axios instance with default config
 const apiClient = axios.create({
