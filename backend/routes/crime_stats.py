@@ -7,7 +7,7 @@ from schemas import CrimeStatCreate, CrimeStatUpdate, CrimeStatResponse
 
 router = APIRouter(prefix="/api/crime-stats", tags=["Crime Stats"])
 
-@router.get("/", response_model=List[CrimeStatResponse])
+@router.get("", response_model=List[CrimeStatResponse])
 async def get_all_crime_stats(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, le=500),
@@ -24,7 +24,7 @@ async def get_crime_stat(stat_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Crime stat not found")
     return stat
 
-@router.post("/", response_model=CrimeStatResponse, status_code=201)
+@router.post("", response_model=CrimeStatResponse, status_code=201)
 async def create_crime_stat(stat_data: CrimeStatCreate, db: Session = Depends(get_db)):
     """Create a new crime stat"""
     stat = CrimeStat(**stat_data.model_dump())

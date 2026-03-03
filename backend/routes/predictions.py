@@ -7,7 +7,7 @@ from schemas import PredictionCreate, PredictionUpdate, PredictionResponse
 
 router = APIRouter(prefix="/api/predictions", tags=["Predictions"])
 
-@router.get("/", response_model=List[PredictionResponse])
+@router.get("", response_model=List[PredictionResponse])
 async def get_all_predictions(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, le=500),
@@ -24,7 +24,7 @@ async def get_prediction(prediction_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Prediction not found")
     return prediction
 
-@router.post("/", response_model=PredictionResponse, status_code=201)
+@router.post("", response_model=PredictionResponse, status_code=201)
 async def create_prediction(prediction_data: PredictionCreate, db: Session = Depends(get_db)):
     """Create a new prediction"""
     prediction = Prediction(**prediction_data.model_dump())

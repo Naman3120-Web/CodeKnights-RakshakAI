@@ -8,7 +8,7 @@ from models.crime import CrimeType
 
 router = APIRouter(prefix="/api/crimes", tags=["Crimes"])
 
-@router.get("/", response_model=List[CrimeResponse])
+@router.get("", response_model=List[CrimeResponse])
 async def get_all_crimes(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, le=500),
@@ -22,7 +22,7 @@ async def get_crime(crime_id: int, db: Session = Depends(get_db)):
     """Get crime by ID"""
     return CrimeService.get_by_id(db, crime_id)
 
-@router.post("/", response_model=CrimeResponse, status_code=201)
+@router.post("", response_model=CrimeResponse, status_code=201)
 async def create_crime(crime_data: CrimeCreate, db: Session = Depends(get_db)):
     """Create new crime record"""
     return CrimeService.create(db, crime_data)

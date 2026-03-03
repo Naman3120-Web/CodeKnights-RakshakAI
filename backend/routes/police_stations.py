@@ -12,7 +12,7 @@ from schemas.police_stations import (
 router = APIRouter(prefix="/api/police-stations", tags=["Police Stations"])
 
 
-@router.get("/", response_model=List[PoliceStationResponse])
+@router.get("", response_model=List[PoliceStationResponse])
 async def get_all_stations(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, le=500),
@@ -31,7 +31,7 @@ async def get_station(station_id: int, db: Session = Depends(get_db)):
     return station
 
 
-@router.post("/", response_model=PoliceStationResponse, status_code=201)
+@router.post("", response_model=PoliceStationResponse, status_code=201)
 async def create_station(
     station_data: PoliceStationCreate, 
     db: Session = Depends(get_db)

@@ -7,7 +7,7 @@ from schemas import PatrolSuggestionCreate, PatrolSuggestionUpdate, PatrolSugges
 
 router = APIRouter(prefix="/api/patrol-suggestions", tags=["Patrol Suggestions"])
 
-@router.get("/", response_model=List[PatrolSuggestionResponse])
+@router.get("", response_model=List[PatrolSuggestionResponse])
 async def get_all_patrol_suggestions(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, le=500),
@@ -24,7 +24,7 @@ async def get_patrol_suggestion(suggestion_id: int, db: Session = Depends(get_db
         raise HTTPException(status_code=404, detail="Patrol suggestion not found")
     return suggestion
 
-@router.post("/", response_model=PatrolSuggestionResponse, status_code=201)
+@router.post("", response_model=PatrolSuggestionResponse, status_code=201)
 async def create_patrol_suggestion(
     suggestion_data: PatrolSuggestionCreate,
     db: Session = Depends(get_db)

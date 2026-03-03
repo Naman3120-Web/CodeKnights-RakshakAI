@@ -7,7 +7,7 @@ from schemas import ZoneCreate, ZoneUpdate, ZoneResponse
 
 router = APIRouter(prefix="/api/zones", tags=["Zones"])
 
-@router.get("/", response_model=List[ZoneResponse])
+@router.get("", response_model=List[ZoneResponse])
 async def get_all_zones(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, le=500),
@@ -24,7 +24,7 @@ async def get_zone(zone_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Zone not found")
     return zone
 
-@router.post("/", response_model=ZoneResponse, status_code=201)
+@router.post("", response_model=ZoneResponse, status_code=201)
 async def create_zone(zone_data: ZoneCreate, db: Session = Depends(get_db)):
     """Create a new zone"""
     zone = Zone(**zone_data.model_dump())
