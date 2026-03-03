@@ -19,7 +19,8 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="Rakshak AI",
     description="Crime Analytics & Patrol Management System for Mumbai",
-    version="1.0.0"
+    version="1.0.0",
+    redirect_slashes=False  # Disable automatic trailing slash redirects to avoid CORS issues
 )
 
 # Define the origins that are allowed to make requests
@@ -32,6 +33,8 @@ origins = [
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
     "http://127.0.0.1:8000",
+    "https://code-knights-rakshak-ai-zxqj.vercel.app",  # Production Vercel frontend
+    "https://codeknights-rakshakai.onrender.com",  # Production backend (for same-origin)
 ]
 
 app.add_middleware(
@@ -40,6 +43,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # Register routers (like @ComponentScan in Spring Boot)
