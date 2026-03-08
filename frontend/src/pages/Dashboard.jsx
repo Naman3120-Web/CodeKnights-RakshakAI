@@ -3,6 +3,7 @@ import TopBar from "../components/TopBar";
 import Sidebar from "../components/Sidebar";
 import MapView from "../components/MapView";
 import InsightsPanel from "../components/InsightsPanel";
+import PoliceLoader from "../components/PoliceLoader";
 import useCrimeData from "../hooks/UseCrimeData";
 import "../styles/layout.css";
 
@@ -60,17 +61,8 @@ export default function Dashboard({ onNavigate, activePage }) {
         />
 
         {loading ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flex: 1,
-              fontSize: "1.2rem",
-              color: "#666",
-            }}
-          >
-            Loading data...
+          <div className="prediction-loading">
+            <PoliceLoader label="Syncing incident feed" />
           </div>
         ) : error ? (
           <div

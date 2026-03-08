@@ -3,6 +3,7 @@ import TopBar from "../components/TopBar";
 import PredictionSidebar from "../components/PredictionSidebar";
 import PredictionMapView from "../components/PredictionMapView";
 import SuggestionPanel from "../components/SuggestionPanel";
+import PoliceLoader from "../components/PoliceLoader";
 import * as api from "../services/api";
 import "../styles/layout.css";
 
@@ -204,17 +205,15 @@ export default function PredictionsDashboard({ onNavigate, activePage }) {
         />
 
         {loading ? (
-          <div className="prediction-loading">Loading zones...</div>
+          <div className="prediction-loading">
+            <PoliceLoader label="Mapping patrol zones" />
+          </div>
         ) : error ? (
           <div className="prediction-error">{error}</div>
         ) : generating ? (
           <div className="prediction-center">
             <div className="prediction-generating">
-              <div className="generating-spinner"></div>
-              <p>🤖 Generating AI predictions with Gemini...</p>
-              <p className="generating-sub">
-                Analyzing crime patterns and generating patrol suggestions
-              </p>
+              <PoliceLoader label="Generating AI patrol guidance" />
             </div>
           </div>
         ) : aiPredictions.length === 0 ? (
