@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export default function TopBar({ onNavigate, activePage }) {
   return (
@@ -17,13 +17,11 @@ export default function TopBar({ onNavigate, activePage }) {
       </div>
 
       <div className="brand">
-        <Shield size={24} />
+        <img src="/logo.png" alt="RakshakAI logo" width="50" height="50" />
         <h1>RakshakAI</h1>
       </div>
 
       <div className="topbar-items">
-        <div className="topbar-item">🗺️ Map</div>
-        <div className="topbar-item">🧠 AI Predictions</div>
         <div className="topbar-item">📍 Mumbai City</div>
       </div>
     </header>

@@ -60,8 +60,7 @@ export default function usePredictionData(filters) {
           .filter(Boolean);
 
         setPredictions(enrichedPredictions);
-      } catch (err) {
-        console.error("Failed to load prediction data", err);
+      } catch {
         setError("Failed to load prediction data.");
         setPredictions([]);
         setSuggestions([]);

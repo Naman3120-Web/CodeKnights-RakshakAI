@@ -1,7 +1,6 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import CrimeMarker from "./CrimeMarker";
-import PoliceStationMarker from "./PoliceStationMarker";
 import HotSpotLayer from "./HotSpotLayer";
 import HeatmapLayer from "./HeatmapLayer";
 import { MAP_CENTER } from "../utils/constants";
@@ -9,13 +8,7 @@ import "leaflet/dist/leaflet.css";
 import "../styles/map.css";
 import "./Map/mapStyles.css"; // Custom marker styles
 
-export default function MapView({ 
-  crimes, 
-  policeStations = [], 
-  showHeatmap, 
-  showHotspots,
-  showPoliceStations = true 
-}) {
+export default function MapView({ crimes, showHeatmap, showHotspots }) {
   return (
     <div className="map-wrapper">
       <MapContainer
@@ -32,12 +25,6 @@ export default function MapView({
         {/* Crime Markers */}
         {!showHeatmap &&
           crimes.map((crime) => <CrimeMarker key={crime.id} crime={crime} />)}
-
-        {/* Police Station Markers */}
-        {showPoliceStations &&
-          policeStations.map((station) => (
-            <PoliceStationMarker key={station.id} station={station} />
-          ))}
 
         {showHotspots && <HotSpotLayer crimes={crimes} />}
 

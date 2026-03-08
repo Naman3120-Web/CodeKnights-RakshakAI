@@ -67,7 +67,6 @@ export default function HotspotLayer({ crimes }) {
       }
     });
 
-    console.log(`Generated ${clusterMap.length} hotspot clusters`);
     return clusterMap;
   }, [crimes]);
 
@@ -92,8 +91,16 @@ export default function HotspotLayer({ crimes }) {
           }}
         >
           <Popup>
-            <div style={{ fontSize: "13px", color: "#1f2937", fontWeight: "500" }}>
-              <strong style={{ fontSize: "14px", display: "block", marginBottom: "6px" }}>
+            <div
+              style={{ fontSize: "13px", color: "#1f2937", fontWeight: "500" }}
+            >
+              <strong
+                style={{
+                  fontSize: "14px",
+                  display: "block",
+                  marginBottom: "6px",
+                }}
+              >
                 🔥 Crime Hotspot Zone
               </strong>
               <div style={{ marginBottom: "4px" }}>

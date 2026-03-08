@@ -4,7 +4,6 @@ import Sidebar from "../components/Sidebar";
 import MapView from "../components/MapView";
 import InsightsPanel from "../components/InsightsPanel";
 import useCrimeData from "../hooks/UseCrimeData";
-import usePoliceStations from "../hooks/usePoliceStations";
 import "../styles/layout.css";
 
 export default function Dashboard({ onNavigate, activePage }) {
@@ -16,15 +15,17 @@ export default function Dashboard({ onNavigate, activePage }) {
 
   const [toggles, setToggles] = useState({
     showHeatmap: false,
-    showHotspots: true,
-    showPoliceStations: true, // Add this
+    showHotspots: false,
   });
 
   // 2. Fetch data from backend using custom hooks
-  const { crimes, loading: crimesLoading, error: crimesError } = useCrimeData(filters);
-  const { stations: policeStations, loading: stationsLoading } = usePoliceStations();
+  const {
+    crimes,
+    loading: crimesLoading,
+    error: crimesError,
+  } = useCrimeData(filters);
 
-  const loading = crimesLoading || stationsLoading;
+  const loading = crimesLoading;
   const error = crimesError;
 
   // 3. Handlers
@@ -38,7 +39,7 @@ export default function Dashboard({ onNavigate, activePage }) {
 
   const handleReset = () => {
     setFilters({ crimeType: "All", timeRange: "all" });
-    setToggles({ showHeatmap: false, showHotspots: true, showPoliceStations: true });
+    setToggles({ showHeatmap: false, showHotspots: false });
   };
 
   const handleGenerateReport = () => {
@@ -88,10 +89,8 @@ export default function Dashboard({ onNavigate, activePage }) {
           <>
             <MapView
               crimes={crimes}
-              policeStations={policeStations}
               showHeatmap={toggles.showHeatmap}
               showHotspots={toggles.showHotspots}
-              showPoliceStations={toggles.showPoliceStations}
             />
 
             <InsightsPanel

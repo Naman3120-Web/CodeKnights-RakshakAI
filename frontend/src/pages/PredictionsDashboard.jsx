@@ -41,8 +41,7 @@ export default function PredictionsDashboard({ onNavigate, activePage }) {
         const zonesData = await fetchZones({ limit: 500 });
         setZones(zonesData);
         setLoading(false);
-      } catch (err) {
-        console.error("Failed to load zones:", err);
+      } catch {
         setError("Failed to load zone data");
         setLoading(false);
       }
@@ -117,18 +116,12 @@ export default function PredictionsDashboard({ onNavigate, activePage }) {
               suggestionText: aiResponse.raw_response,
             });
           }
-        } catch (zoneErr) {
-          console.error(
-            `Error getting AI prediction for ${zone.zone_name}:`,
-            zoneErr,
-          );
-        }
+        } catch {}
       }
 
       setAiPredictions(predictions);
       setAiSuggestions(suggestions);
-    } catch (err) {
-      console.error("Error generating AI predictions:", err);
+    } catch {
       setError(
         "Failed to generate AI predictions. Check if Gemini API is configured.",
       );

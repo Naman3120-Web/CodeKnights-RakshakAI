@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter, Map, RotateCcw, Hand, AlertTriangle, Zap } from "lucide-react";
+import { Filter, Map, RotateCcw } from "lucide-react";
 import "../styles/components.css";
 
 const CRIME_TYPES = {
@@ -16,19 +16,6 @@ const TIME_RANGES = [
   { value: "9m", label: "Last 9 Months" },
   { value: "12m", label: "Last 12 Months" },
 ];
-
-// const getCrimeIcon = (type) => {
-//   switch (type) {
-//     case "theft":
-//       return <Hand size={14} style={{ marginRight: "6px" }} />;
-//     case "assault":
-//       return <AlertTriangle size={14} style={{ marginRight: "6px" }} />;
-//     case "accident":
-//       return <Zap size={14} style={{ marginRight: "6px" }} />;
-//     default:
-//       return null;
-//   }
-// };
 
 export default function Sidebar({
   filters,
@@ -96,15 +83,6 @@ export default function Sidebar({
             type="checkbox"
             checked={toggles.showHotspots}
             onChange={() => onToggleChange("showHotspots")}
-            className="toggle-checkbox"
-          />
-        </div>
-        <div className="toggle-row">
-          <label>🚔 Police Stations</label>
-          <input
-            type="checkbox"
-            checked={toggles.showPoliceStations}
-            onChange={() => onToggleChange("showPoliceStations")}
             className="toggle-checkbox"
           />
         </div>

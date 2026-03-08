@@ -9,7 +9,6 @@ export default function HeatmapLayer({ crimes }) {
 
   useEffect(() => {
     if (!crimes || crimes.length === 0) {
-      console.log("No crimes data for heatmap");
       return;
     }
 
@@ -63,10 +62,6 @@ export default function HeatmapLayer({ crimes }) {
 
     heatLayer.addTo(map);
     heatLayerRef.current = heatLayer;
-
-    console.log(
-      `✓ Heatmap layer added: ${crimes.length} points, max density: ${maxDensity}`,
-    );
 
     // Cleanup function
     return () => {

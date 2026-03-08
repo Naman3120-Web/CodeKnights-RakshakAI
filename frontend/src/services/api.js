@@ -67,22 +67,9 @@ export const fetchCrimes = async (filters = {}) => {
       skip: filters.skip || 0,
       limit: filters.limit || 100,
     };
-    console.log(
-      "Fetching crimes from:",
-      `${API_BASE}/crimes`,
-      "with params:",
-      params,
-    );
     const response = await apiClient.get("/crimes", { params });
-    console.log(
-      "API Response:",
-      response.status,
-      response.data.length,
-      "items",
-    );
     return response.data;
   } catch (error) {
-    console.error("Error fetching crimes:", error);
     // Fallback to mock data on error
     return MOCK_DATA;
   }
@@ -93,7 +80,6 @@ export const fetchCrimeById = async (crimeId) => {
     const response = await apiClient.get(`/crimes/${crimeId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching crime ${crimeId}:`, error);
     throw error;
   }
 };
@@ -103,7 +89,6 @@ export const createCrime = async (crimeData) => {
     const response = await apiClient.post("/crimes", crimeData);
     return response.data;
   } catch (error) {
-    console.error("Error creating crime:", error);
     throw error;
   }
 };
@@ -113,7 +98,6 @@ export const updateCrime = async (crimeId, crimeData) => {
     const response = await apiClient.put(`/crimes/${crimeId}`, crimeData);
     return response.data;
   } catch (error) {
-    console.error(`Error updating crime ${crimeId}:`, error);
     throw error;
   }
 };
@@ -123,7 +107,6 @@ export const deleteCrime = async (crimeId) => {
     const response = await apiClient.delete(`/crimes/${crimeId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error deleting crime ${crimeId}:`, error);
     throw error;
   }
 };
@@ -133,7 +116,6 @@ export const fetchCrimesByZone = async (zoneId) => {
     const response = await apiClient.get(`/crimes/zone/${zoneId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching crimes for zone ${zoneId}:`, error);
     throw error;
   }
 };
@@ -143,7 +125,6 @@ export const fetchCrimesByType = async (crimeType) => {
     const response = await apiClient.get(`/crimes/type/${crimeType}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching crimes by type ${crimeType}:`, error);
     throw error;
   }
 };
@@ -153,7 +134,6 @@ export const fetchCrimeStatsGroupedByZone = async () => {
     const response = await apiClient.get("/crimes/stats/by-zone");
     return response.data;
   } catch (error) {
-    console.error("Error fetching crime stats grouped by zone:", error);
     throw error;
   }
 };
@@ -169,7 +149,6 @@ export const fetchZones = async (filters = {}) => {
     const response = await apiClient.get("/zones", { params });
     return response.data;
   } catch (error) {
-    console.error("Error fetching zones:", error);
     throw error;
   }
 };
@@ -179,7 +158,6 @@ export const fetchZoneById = async (zoneId) => {
     const response = await apiClient.get(`/zones/${zoneId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching zone ${zoneId}:`, error);
     throw error;
   }
 };
@@ -189,7 +167,6 @@ export const createZone = async (zoneData) => {
     const response = await apiClient.post("/zones", zoneData);
     return response.data;
   } catch (error) {
-    console.error("Error creating zone:", error);
     throw error;
   }
 };
@@ -199,7 +176,6 @@ export const updateZone = async (zoneId, zoneData) => {
     const response = await apiClient.put(`/zones/${zoneId}`, zoneData);
     return response.data;
   } catch (error) {
-    console.error(`Error updating zone ${zoneId}:`, error);
     throw error;
   }
 };
@@ -209,7 +185,6 @@ export const deleteZone = async (zoneId) => {
     const response = await apiClient.delete(`/zones/${zoneId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error deleting zone ${zoneId}:`, error);
     throw error;
   }
 };
@@ -248,7 +223,6 @@ export const fetchPredictions = async (filters = {}) => {
     const response = await apiClient.get("/predictions", { params });
     return response.data;
   } catch (error) {
-    console.error("Error fetching predictions:", error);
     throw error;
   }
 };
@@ -258,7 +232,6 @@ export const fetchPredictionById = async (predictionId) => {
     const response = await apiClient.get(`/predictions/${predictionId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching prediction ${predictionId}:`, error);
     throw error;
   }
 };
@@ -268,7 +241,6 @@ export const fetchPredictionsByZone = async (zoneId) => {
     const response = await apiClient.get(`/predictions/zone/${zoneId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching predictions for zone ${zoneId}:`, error);
     throw error;
   }
 };
@@ -278,10 +250,6 @@ export const fetchLatestPredictionForZone = async (zoneId) => {
     const response = await apiClient.get(`/predictions/zone/${zoneId}/latest`);
     return response.data;
   } catch (error) {
-    console.error(
-      `Error fetching latest prediction for zone ${zoneId}:`,
-      error,
-    );
     throw error;
   }
 };
@@ -291,7 +259,6 @@ export const createPrediction = async (predictionData) => {
     const response = await apiClient.post("/predictions", predictionData);
     return response.data;
   } catch (error) {
-    console.error("Error creating prediction:", error);
     throw error;
   }
 };
@@ -307,7 +274,6 @@ export const fetchPatrolSuggestions = async (filters = {}) => {
     const response = await apiClient.get("/patrol-suggestions", { params });
     return response.data;
   } catch (error) {
-    console.error("Error fetching patrol suggestions:", error);
     throw error;
   }
 };
@@ -317,10 +283,6 @@ export const fetchPatrolSuggestionsByZone = async (zoneId) => {
     const response = await apiClient.get(`/patrol-suggestions/zone/${zoneId}`);
     return response.data;
   } catch (error) {
-    console.error(
-      `Error fetching patrol suggestions for zone ${zoneId}:`,
-      error,
-    );
     throw error;
   }
 };
@@ -332,10 +294,6 @@ export const fetchPatrolSuggestionsByPrediction = async (predictionId) => {
     );
     return response.data;
   } catch (error) {
-    console.error(
-      `Error fetching patrol suggestions for prediction ${predictionId}:`,
-      error,
-    );
     throw error;
   }
 };
@@ -348,7 +306,6 @@ export const createPatrolSuggestion = async (suggestionData) => {
     );
     return response.data;
   } catch (error) {
-    console.error("Error creating patrol suggestion:", error);
     throw error;
   }
 };
@@ -364,7 +321,6 @@ export const fetchCrimeStats = async (filters = {}) => {
     const response = await apiClient.get("/crime-stats", { params });
     return response.data;
   } catch (error) {
-    console.error("Error fetching crime stats:", error);
     throw error;
   }
 };
@@ -374,55 +330,6 @@ export const fetchCrimeStatsByZone = async (zoneId) => {
     const response = await apiClient.get(`/crime-stats/zone/${zoneId}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching crime stats for zone ${zoneId}:`, error);
-    throw error;
-  }
-};
-
-// ========== POLICE STATION APIs ==========
-
-export const fetchPoliceStations = async () => {
-  try {
-    const response = await apiClient.get("/police-stations");
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching police stations:", error);
-    return [];
-  }
-};
-
-export const fetchPoliceStationById = async (stationId) => {
-  try {
-    const response = await apiClient.get(`/police-stations/${stationId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching police station ${stationId}:`, error);
-    throw error;
-  }
-};
-
-export const fetchPoliceStationsByZone = async (zoneId) => {
-  try {
-    const response = await apiClient.get(`/police-stations/zone/${zoneId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching police stations for zone ${zoneId}:`, error);
-    throw error;
-  }
-};
-
-export const fetchNearbyPoliceStations = async (
-  latitude,
-  longitude,
-  radiusKm = 5,
-) => {
-  try {
-    const response = await apiClient.get("/police-stations/nearby", {
-      params: { latitude, longitude, radius_km: radiusKm },
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching nearby police stations:", error);
     throw error;
   }
 };
@@ -434,7 +341,6 @@ export const trainAIModels = async () => {
     const response = await apiClient.post("/crimes/ai/train");
     return response.data;
   } catch (error) {
-    console.error("Error training AI models:", error);
     throw error;
   }
 };
@@ -469,20 +375,6 @@ export const getAIPatrolSuggestions = async (
     });
     return response.data;
   } catch (error) {
-    console.error("Error fetching AI patrol suggestions:", error);
     throw error;
   }
 };
-
-// Transform police station data for frontend
-export const transformPoliceStationData = (station) => ({
-  id: station.id,
-  name: station.station_name,
-  lat: station.latitude,
-  lng: station.longitude,
-  zoneId: station.zone_id,
-  contact: station.contact_number,
-  type: station.station_type,
-  personnelCount: station.personnel_count,
-  hasLockup: station.has_lockup,
-});

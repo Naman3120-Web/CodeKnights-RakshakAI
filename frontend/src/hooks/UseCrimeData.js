@@ -13,15 +13,12 @@ export default function useCrimeData(filters) {
       setError(null);
       try {
         const result = await fetchCrimes(filters);
-        console.log("Fetched raw data:", result);
 
         // Transform backend data to frontend format
         const transformedData = result.map(transformCrimeData);
-        console.log("Transformed data:", transformedData);
 
         setData(transformedData);
-      } catch (err) {
-        console.error("Failed to load crime data", err);
+      } catch {
         setError("Failed to load crime data. Using mock data.");
         setData([]);
       } finally {
