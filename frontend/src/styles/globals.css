@@ -6,9 +6,22 @@
   --border: #e2e8f0;
 }
 
+html,
+body,
+#root,
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text-main);
   background: var(--bg-app);
   height: 100vh;

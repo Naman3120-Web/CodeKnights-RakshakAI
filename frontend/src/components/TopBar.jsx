@@ -17,12 +17,19 @@ export default function TopBar({ onNavigate, activePage }) {
       </div>
 
       <div className="brand">
-        <img src="/logo.png" alt="RakshakAI logo" width="50" height="50" />
+        <img src="/RakshakIcon.png" alt="RakshakAI logo" className="brand-logo" />
         <h1>RakshakAI</h1>
       </div>
 
       <div className="topbar-items">
-        <div className="topbar-item">📍 Mumbai City</div>
+        <div className="topbar-item">
+          <img
+            src="/location.png"
+            alt="Location"
+            className="topbar-location-icon"
+          />
+          Mumbai City
+        </div>
       </div>
     </header>
   );

@@ -1,13 +1,16 @@
 .dashboard-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .main-content {
   display: flex;
   flex: 1;
+  min-height: 0;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -47,4 +50,20 @@
   padding: 1rem;
   border-radius: 8px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .prediction-center {
+    min-height: 58vh;
+  }
+
+  .prediction-map {
+    min-height: 52vh;
+  }
 }
